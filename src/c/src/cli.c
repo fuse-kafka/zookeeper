@@ -31,7 +31,10 @@
 //#include <io.h> <-- can't include, conflicting definitions of close()
 int read(int _FileHandle, void * _DstBuf, unsigned int _MaxCharCount);
 int write(int _Filehandle, const void * _Buf, unsigned int _MaxCharCount);
-#define ctime_r(tctime, buffer) ctime_s (buffer, 40, tctime)
+//#define ctime_r(tctime, buffer) ctime_s (buffer, 40, tctime)
+#define ctime_r( _clock, _buf ) \
+    ( strcpy( (_buf), ctime( (_clock) ) ),  \
+      (_buf) )
 #endif
 
 #include <time.h>

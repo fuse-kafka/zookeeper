@@ -102,10 +102,10 @@ static const char* time_now(char* now_str){
     time_t now = 0;
     size_t len = 0;
     
-    gettimeofday(&tv,0);
+    //gettimeofday(&tv,0);
 
     now = tv.tv_sec;
-    localtime_r(&now, &lt);
+    //localtime_r(&now, &lt);
 
     // clone the format used by log4j ISO8601DateFormat
     // specifically: "yyyy-MM-dd HH:mm:ss,SSS"

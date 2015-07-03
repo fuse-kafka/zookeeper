@@ -161,8 +161,8 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
-#include <Winsock2.h>
+#include <windows.h>
+#include <winsock2.h>
 #include <winstdint.h>
 #include <process.h>
 #include <ws2tcpip.h>
@@ -173,7 +173,7 @@
 #include <errno.h>
 
 #define strtok_r strtok_s
-#define localtime_r(a,b) localtime_s(b,a)
+//#define localtime_r(a,b) localtime_s(b,a)
 #define get_errno() errno=GetLastError()
 #define random rand
 #define snprintf _snprintf
@@ -187,5 +187,5 @@
 #define EWOULDBLOCK WSAEWOULDBLOCK
 #define EINPROGRESS WSAEINPROGRESS
 
-typedef int pid_t;
+//typedef int pid_t;
 #endif

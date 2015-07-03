@@ -51,6 +51,8 @@
 #include <netdb.h>
 #include <unistd.h>
 #include "config.h"
+#else
+#include "winport.c"
 #endif
 
 #ifdef HAVE_SYS_UTSNAME_H

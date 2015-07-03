@@ -482,7 +482,7 @@ int32_t inc_ref_counter(zhandle_t* zh,int i)
 
 int32_t fetch_and_add(volatile int32_t* operand, int incr)
 {
-#ifndef WIN32
+//#ifndef WIN32
     int32_t result;
     asm __volatile__(
          "lock xaddl %0,%1\n"
@@ -490,7 +490,7 @@ int32_t fetch_and_add(volatile int32_t* operand, int incr)
          : "0"(incr)
          : "memory");
    return result;
-#else
+/*#else
     volatile int32_t result;
     _asm
     {
@@ -502,7 +502,7 @@ int32_t fetch_and_add(volatile int32_t* operand, int incr)
         mov result, ecx; // result = ebx;        
      }
      return result;    
-#endif
+#endif*/
 }
 
 // make sure the static xid is initialized before any threads started

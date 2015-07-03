@@ -126,4 +126,9 @@ In order to be able to use the zookeeper API in your application you have to
    be linking your code against zookeeper_mt library
 
 Please take a look at cli.c to understand how to use the two API types. 
+
 (TODO: some kind of short tutorial would be helpful, I guess)
+
+Windows Build:
+
+CC=x86_64-w64-mingw32-gcc CFLAGS="-DWIN32 -DNDEBUG -D_WINDOWS -D_USRDLL -DZOOKEEPER_EXPORTS -DDLL_EXPORT -w -fpermissive -D_X86INTRIN_H_INCLUDED" LDFLAGS="-lwsock32 -lws2_32" LIBS="-lwsock32 -lws2_32" archive_cmds_need_lc=no 

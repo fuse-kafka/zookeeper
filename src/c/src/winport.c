@@ -256,9 +256,9 @@ int pthread_setspecific(pthread_key_t key, const void *value)
 }
 
 
-int close(SOCKET fd) {
+/*int close(SOCKET fd) {
         return closesocket(fd);
-}
+}*/
 
 int Win32WSAStartup()
 {

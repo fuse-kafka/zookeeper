@@ -32,7 +32,7 @@
 #include <malloc.h>
 
 
-typedef int ssize_t;
+//typedef int ssize_t;
 typedef HANDLE pthread_mutex_t;
 
 struct pthread_t_
@@ -105,7 +105,7 @@ int pthread_key_delete(pthread_key_t key);
 void *pthread_getspecific(pthread_key_t key);
 int pthread_setspecific(pthread_key_t key, const void *value);
 
-inline int gettimeofday(struct timeval *tp, void *tzp) {
+static inline int gettimeofday(struct timeval *tp, void *tzp) {
         int64_t now = 0;
         if (tzp != 0) { errno = EINVAL; return -1; }
         GetSystemTimeAsFileTime( (LPFILETIME)&now );
@@ -113,7 +113,7 @@ inline int gettimeofday(struct timeval *tp, void *tzp) {
         tp->tv_usec = (now / 10) % 1000000;
         return 0;
 }
-int close(SOCKET fd);
+// int close(SOCKET fd);
 int Win32WSAStartup();
 void Win32WSACleanup();
 #endif //WIN32

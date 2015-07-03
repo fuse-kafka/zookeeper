@@ -24,7 +24,7 @@
 #include <pthread.h>
 #endif
 #else
-#include "win32port.h"
+#include "winport.h"
 #endif
 #include <string.h>
 #include <stdlib.h>
@@ -35,6 +35,13 @@ static int shutdownThisThing=0;
 
 // *****************************************************************************
 //
+#ifndef PTHREAD_COND_INITIALIZER
+#define PTHREAD_COND_INITIALIZER { { 0, 0, 0, 0, 0, (void *) 0, 0, 0 } }
+#endif
+#ifndef PTHREAD_MUTEX_INITIALIZER
+#define PTHREAD_MUTEX_INITIALIZER \
+       { { 0, 0, 0, 0, 0, { 0 } } }
+#endif
 static pthread_cond_t cond=PTHREAD_COND_INITIALIZER;
 static pthread_mutex_t lock=PTHREAD_MUTEX_INITIALIZER;
 
